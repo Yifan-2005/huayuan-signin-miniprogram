@@ -1,0 +1,60 @@
+<view class="container">
+  <view class="header">
+    <text class="title">发布线下签到</text>
+  </view>
+
+  <view class="form-container">
+    <view class="form-group">
+      <text class="label">基本信息</text>
+      <view class="input-group">
+        <text class="input-label">课程名称</text>
+        <input class="input" placeholder="课程名称" value="{{courseName}}" disabled />
+      </view>
+      <view class="input-group">
+        <text class="input-label">班级名称</text>
+        <input class="input" placeholder="班级" value="{{className}}" disabled />
+      </view>
+    </view>
+
+    <view class="form-group">
+      <text class="label">时间设置</text>
+      <view class="input-group">
+        <text class="input-label">开始时间</text>
+        <picker mode="date" value="{{startDate}}" bindchange="onStartDateChange">
+          <view class="picker"><text>{{startDate || '请选择日期'}}</text></view>
+        </picker>
+        <picker mode="time" value="{{startTime}}" bindchange="onStartTimeChange">
+          <view class="picker"><text>{{startTime || '请选择时间'}}</text></view>
+        </picker>
+      </view>
+      <view class="input-group">
+        <text class="input-label">结束时间</text>
+        <picker mode="date" value="{{endDate}}" bindchange="onEndDateChange">
+          <view class="picker"><text>{{endDate || '请选择日期'}}</text></view>
+        </picker>
+        <picker mode="time" value="{{endTime}}" bindchange="onEndTimeChange">
+          <view class="picker"><text>{{endTime || '请选择时间'}}</text></view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="form-group">
+      <text class="label">签到范围</text>
+      <picker mode="selector" range="{{rangeOptions}}" bindchange="onRangeChange">
+        <view class="picker">{{rangeOptions[selectedRangeIndex]}}米</view>
+      </picker>
+    </view>
+
+    <view class="form-group">
+      <text class="label">当前位置</text>
+      <view class="input-group">
+        <image src="/images/定位.png" mode="aspectFit" style="width: 50rpx; height: 50rpx;"/>
+        <text class="input-label"> 位置</text>
+        <text class="input-label" style="flex:1;">{{locationText}}</text>
+        <button class="link-btn" bindtap="requestLocation">获取位置</button>
+      </view>
+    </view>
+
+    <button class="submit-btn" bindtap="submitSign">发布签到</button>
+  </view>
+</view>

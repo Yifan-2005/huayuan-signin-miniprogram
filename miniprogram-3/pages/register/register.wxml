@@ -1,0 +1,38 @@
+<button class="btnavatar" bind:tap="choosePhoto">
+<image src="{{photo}}" class="photo"/>
+</button >
+
+<input  placeholder="请输入学号" model:value="{{username}}"/>
+<!-- <button  type="default" size="mini" class="minibtn" bind:tap="loadName">提交</button> -->
+
+<input   placeholder="请输入姓名" model:value="{{name}}"/>
+
+<view class="password-wrapper">
+  <input
+    type="text"
+    password="{{!showPassword}}"
+    placeholder="请输入密码"
+    value="{{password}}"
+    bindinput="onPasswordInput"
+    class="password-input"
+  />
+  <image
+    src="{{showPassword ? '/images/眼睛显示.png' : '/images/眼睛隐藏.png'}}"
+    class="toggle-eye"
+    bindtap="togglePasswordVisibility"
+  />
+</view>
+
+<!-- <button  type="default" size="mini" class="minibtn" bind:tap="loadpassword">提交</button> -->
+
+<picker mode="selector" range="{{classList}}" bindchange="chooseClass">
+  <view class="picker">
+    选择班级：{{selectedClass || '未选择'}}
+  </view>
+</picker>
+
+<view bind:tap="handlere">
+<text class="textdown">已有账号，去登录</text>
+</view>
+
+<button class="btn" bind:tap="handleconfirm"> 确定</button>

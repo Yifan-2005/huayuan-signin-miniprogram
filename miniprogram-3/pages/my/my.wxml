@@ -1,0 +1,49 @@
+<view wx:if="{{loading}}" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+  <loading type="circular" />
+</view>
+
+<block wx:elif="{{control==0}}">
+<view class="login-area">
+    <button bind:tap="handlelogin">登录</button>
+    <button bind:tap="handleregister">注册</button>
+    <button bind:tap="handlechange">切换身份</button>
+</view>
+  
+
+
+
+</block>
+<block  wx:elif="{{control === 1}}">
+  <view class="container1">
+    <view class="top-view">
+      <view class="user">
+        <view class="row">
+          <image class="avatar" src="{{userInfo.avatar}}"></image>
+          <view class="name">{{userInfo.name}}</view>
+          <button class="minibtn" size="mini" bindtap="showUsername">查看学号</button>
+        </view>
+
+      </view>
+      <view class="numbers">
+        <view class="row">
+             <text>课程</text><text>{{userInfo.class}}</text>
+       
+        </view>
+        <view class="row">
+          <text>签到积分</text><text>{{userInfo.score}}</text>
+          
+        </view>
+      </view>
+    </view>
+
+    <button class="btn" bind:tap="handleback">退出登录</button>
+  </view>
+
+
+</block>
+<custom-tab-bar/>
+
+
+
+
+

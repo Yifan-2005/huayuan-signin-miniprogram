@@ -1,0 +1,99 @@
+<view class="container">
+  <view class="header">
+    <text class="title">发布线上签到任务</text>
+  </view>
+  
+  <view class="form-container">
+    <view class="form-group">
+      <text class="label">基本信息</text>
+      <view class="input-group">
+        <text class="input-label">课程名称</text>
+        <input class="input" placeholder="请输入课程名称" value="{{courseName}}" bindinput="onInputCourse" disabled="{{courseName}}" />
+      </view>
+      <view class="input-group">
+        <text class="input-label">班级名称</text>
+        <input class="input" placeholder="请输入班级名称" value="{{className}}" bindinput="onInputClass" disabled="{{className}}" />
+      </view>
+      <view class="input-group">
+        <text class="input-label">任务标题</text>
+        <input class="input" placeholder="请输入任务标题" value="{{title}}" bindinput="onInputTitle" />
+      </view>
+      <view class="input-group">
+        <text class="input-label">任务描述</text>
+        <textarea class="textarea" placeholder="请输入任务描述" value="{{desc}}" bindinput="onInputDesc" />
+      </view>
+    </view>
+
+    <view class="form-group">
+      <text class="label">时间设置</text>
+      <view class="input-group">
+        <text class="input-label">开始时间</text>
+        <picker mode="date" value="{{startDate}}" bindchange="onStartDateChange">
+          <view class="picker">
+            <text>{{startDate || '请选择日期'}}</text>
+          </view>
+        </picker>
+        <picker mode="time" value="{{startTime}}" bindchange="onStartTimeChange">
+          <view class="picker">
+            <text>{{startTime || '请选择时间'}}</text>
+          </view>
+        </picker>
+      </view>
+      <view class="input-group">
+        <text class="input-label">结束时间</text>
+        <picker mode="date" value="{{endDate}}" bindchange="onEndDateChange">
+          <view class="picker">
+            <text>{{endDate || '请选择日期'}}</text>
+          </view>
+        </picker>
+        <picker mode="time" value="{{endTime}}" bindchange="onEndTimeChange">
+          <view class="picker">
+            <text>{{endTime || '请选择时间'}}</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="form-group">
+      <text class="label">视频上传</text>
+      <view class="video-upload">
+        <button class="upload-btn" bindtap="chooseVideo">{{tempVideoPath ? '重新选择视频' : '选择视频'}}</button>
+        <text class="video-name">{{videoName || '未选择视频'}}</text>
+        <video wx:if="{{tempVideoPath}}" class="preview-video" src="{{tempVideoPath}}"></video>
+      </view>
+    </view>
+
+    <view class="form-group">
+      <text class="label">问题设置</text>
+      <view class="question-container">
+
+        <view class="input-group">
+          <text class="input-label">问题内容</text>
+          <textarea class="textarea" placeholder="请输入问题内容" value="{{questionContent}}" bindinput="onInputQuestionContent" />
+        </view>
+        
+        <view class="options-container">
+          <text class="input-label">选项设置</text>
+          <view class="option-item" wx:for="{{options}}" wx:key="id">
+            <text class="option-label">选项{{item.id}}</text>
+            <input class="option-input" placeholder="请输入选项内容" value="{{item.text}}" bindinput="onInputOption" data-id="{{item.id}}" />
+          </view>
+          <view class="input-group">
+            <text class="input-label">正确答案</text>
+            <picker mode="selector" range="{{['A', 'B', 'C', 'D']}}" value="{{correctAnswerIndex}}" bindchange="onCorrectAnswerChange">
+              <view class="picker">
+                <text>{{correctAnswer || '请选择正确答案'}}</text>
+              </view>
+            </picker>
+          </view>
+          <view class="input-group">
+            <text class="input-label">答题时间限制(秒)</text>
+            <slider min="0" max="120" value="{{timeLimit}}" show-value bindchange="onTimeLimitChange" activeColor="#4285f4"></slider>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <button class="submit-btn" bindtap="uploadVideo" wx:if="{{tempVideoPath && courseName && className && title && questionContent && correctAnswer && options[0].text && options[1].text && options[2].text && options[3].text && startDate && startTime && endDate && endTime}}">发布线上签到任务</button>
+  </view>
+</view>

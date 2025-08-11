@@ -1,0 +1,55 @@
+<block wx:if="{{control==0}}">
+  <view class="login-area">
+    <button bindtap="handlelogin">登录</button>
+    <button bindtap="handleregister">注册</button>
+    <button bindtap="handlechange">切换身份</button>
+  </view>
+</block>
+<block wx:else>
+  <view class="container1">
+    <view class="top-view">
+      <view class="user">
+        <view class="row">
+          <image class="avatar" src="{{userInfo.avatar || '/images/默认头像.png'}}"></image>
+          <view class="name">{{userInfo.name || userInfo.username}}</view>
+        </view>
+      </view>
+      <!-- 教学课程显示 -->
+      <view class="teach-list" wx:if="{{userInfo.teaching && userInfo.teaching.length}}">
+        <view class="teach-title">我的教学班级与课程：</view>
+        <block wx:for="{{userInfo.teaching}}" wx:key="className">
+          <view class="teach-card">
+            <view class="card-row">
+              <text class="label">班级：</text>
+              <text class="val">{{item.className}}</text>
+            </view>
+            <view class="card-row">
+              <text class="label">课程：</text>
+              <text class="val">{{item.courseName}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view wx:elif="{{!userInfo.teaching || !userInfo.teaching.length}}" class="teach-none">
+        暂无课程信息
+      </view>
+    </view>
+    <button class="btn" style="margin-bottom: 20rpx;" bindtap="openAddCourseModal">添加课程</button>
+    <button class="btn" bindtap="handleback">退出登录</button>
+    <view style="height: 80rpx;"></view> 
+  </view>
+</block>
+<custom-tab-bar/>
+<view wx:if="{{showAddCourseModal}}" class="modal-mask">
+  <view class="modal-content">
+    <view class="modal-title">添加课程到班级</view>
+    <picker mode="selector" range="{{classOptions}}" range-key="className" bindchange="onSelectClass">
+      <view class="picker-row">选择班级：{{selectedClass || '请选择'}}</view>
+    </picker>
+    <input class="input" placeholder="输入新课程名称" bindinput="onInputNewCourse" />
+    <view class="modal-btns">
+      <button size="mini" bindtap="closeAddCourseModal">取消</button>
+      <button size="mini" bindtap="confirmAddCourse">确定</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,11 @@
+/* pages/offline/offline.wxss */
+.page-section-gap{
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+.page-body-button {
+  margin-bottom: 30rpx;
+  background-color:rgb(59, 165, 214) !important;
+  color: rgb(255, 255, 255) !important;
+}

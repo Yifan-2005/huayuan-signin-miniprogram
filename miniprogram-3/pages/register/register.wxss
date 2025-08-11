@@ -1,0 +1,67 @@
+/* pages/register/register.wxss */
+.minibtn{
+  background-color:rgb(66, 195, 255) !important;
+  color: rgb(90, 97, 102) !important;
+  margin-left: 10rpx;
+}
+.btn{
+  margin-top: 100rpx;   
+  margin-bottom: 30rpx;
+  background-color:rgb(60, 170, 221) !important;
+  color: rgb(255, 255, 255) !important;
+}
+.btnavater{
+  /* 透明的 */
+  background-color: transparent;
+}
+/* 去掉边框 */
+.btnavater::after{
+  border: none;
+}
+.photo{
+  height: 250rpx;
+  width: 250rpx;
+  border-radius: 50%;
+}
+input {
+  border: 1rpx solid rgb(82, 166, 206);
+  border-radius: 20rpx;
+  padding-left: 30rpx !important;
+  padding: 15rpx;
+  margin: 10rpx;
+  background-color: #FFFFFF;
+}
+.picker{
+  background-color: #FFFFFF;
+  border: 1rpx solid rgb(82, 166, 206);
+  border-radius: 20rpx;
+  padding-left: 30rpx !important;
+  padding: 15rpx;
+  margin: 10rpx;
+}
+.textdown{
+  color: #2889c9;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+}
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1rpx solid rgb(82, 166, 206);
+  border-radius: 10px;
+margin-left: 10rpx;
+  height: 80rpx;
+  width: 730rpx;
+}
+
+.password-input {
+  flex: 1;
+  font-size: 32rpx;
+
+  border: none;
+}
+
+.toggle-eye {
+  width: 50rpx;
+  height: 50rpx;
+}

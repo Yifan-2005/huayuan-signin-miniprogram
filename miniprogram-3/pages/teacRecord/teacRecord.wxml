@@ -1,0 +1,28 @@
+<view class="container">
+
+<!-- 未登录 -->
+<view wx:if="{{loginState === 'notLogin'}}" class="state-tip">
+  <image src="/images/empty-user.png" class="empty-img"></image>
+  <view class="tip-title">尚未登录</view>
+  <view class="tip-desc">请先登录后查看课程信息</view>
+  
+</view>
+
+<!-- 未获取课程信息 -->
+<view wx:elif="{{loginState === 'noCourse'}}" class="state-tip">
+  <image src="/images/empty-class.png" class="empty-img"></image>
+  <view class="tip-title">暂无授课课程</view>
+  <view class="tip-desc">请联系管理员添加授课班级或自行添加</view>
+</view>
+
+<!-- 正常显示课程列表 -->
+<block wx:elif="{{loginState === 'ok'}}">
+  <block wx:for="{{courseList}}" wx:key="id">
+    <view class="card" bindtap="onSelectCourse" data-course="{{item.name}}" data-class="{{item.class}}">
+      <view class="card-title">{{item.name}}</view>
+      <view class="card-subtitle">{{item.class}}</view>
+    </view>
+  </block>
+</block>
+</view>
+<custom-tab-bar/>

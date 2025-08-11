@@ -1,0 +1,63 @@
+.tips{
+  background-color: #e9e9e9;
+  font-size: 32rpx;
+  color:#3697d8; 
+  border-radius: 50rpx;
+  margin:30rpx 10rpx 30rpx 10rpx;
+  padding-left:20rpx ;
+}
+
+.menu{
+  display: flex;
+  /*justify-content：定义项目在主轴上的对齐方式。
+  justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;*/
+  justify-content: space-between;
+  padding: 20rpx;
+  border-radius: 20rpx; 
+  /*flex-wrap：如果一条轴线排不下，如何换行。 
+  flex-wrap: nowrap | wrap | wrap-reverse;*/
+  flex-wrap: wrap;
+  background-color: rgb(209, 242, 255);
+  margin:40rpx 10rpx 30rpx 10rpx;
+}
+
+.item{
+  display: flex;
+  /* flex-direction属性决定主轴的方向
+    row（默认值）：主轴为水平方向，起点在左端。
+    row-reverse：主轴为水平方向，起点在右端。
+    column：主轴为垂直方向，起点在上沿。
+    column-reverse：主轴为垂直方向，起点在下沿。 */
+  flex-direction: column;
+  justify-content: center;
+  /* align-items：定义项目在交叉轴上如何对齐。
+  align-items: flex-start | flex-end | center | baseline | stretch */
+  align-items: center;
+  width: 300rpx;
+  height: 280rpx;
+  border: rgb(97, 142, 184) solid 2rpx;
+  border-radius: 30rpx;
+  margin: 27rpx 20rpx 27rpx 20rpx;
+  background-color: rgb(235, 252, 255);
+}
+
+.img{
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.title{
+  margin-top: 10rpx;
+  font-size: 27rpx;
+}
+
+.notice{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.notice>text{
+  font-size: 35rpx;
+}

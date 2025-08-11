@@ -1,0 +1,47 @@
+<view class="banner">
+  <swiper 
+  autoplay
+  indicator-dots
+  circular
+  indicator-color='#FFFFF'
+  interval='3000'
+>
+  <swiper-item>
+    <image src="/images/banner/school.jpg" mode="scaleToFill" style="width: 750rpx; height: 300rpx;"/>
+  </swiper-item>
+  <swiper-item>
+    <image src="/images/banner/华园签.png" mode="scaleToFill" style="width: 750rpx; height: 300rpx;"/>
+  </swiper-item>
+
+</swiper>
+</view>
+
+<view class="tips">
+  <image src="/images/提示.png" mode="aspectFit" style="width: 50rpx; height: 30rpx;"/>
+  <text>欢迎使用华园签小程序~</text>
+</view>
+
+<view class="menu">
+  <view class="item" bind:tap="handleoffline">
+    <image src="/images/menu/线下.png" class="img" />
+    <text class="title">线下签到</text>
+  </view>
+  <view class="item" bind:tap="handleonline">
+    <image src="/images/menu/线上.png" class="img" />
+    <text class="title">线上签到</text>
+  </view>
+  <view class="item" bind:tap="handlerecord">
+    <image src="/images/menu/记录.png" class="img" />
+    <text class="title">签到记录</text>
+  </view>
+  <view class="item" bind:tap="handleelse"> 
+    <image src="/images/menu/其他.png" class="img" />
+    <text class="title">其他</text>
+  </view>
+</view>
+
+<view class="notice">
+<image src="/images/home/board.png" mode="aspectFit" style="width: 200rpx; height: 100rpx;"/>
+<text>功能更新中......</text>
+</view>
+<custom-tab-bar/>

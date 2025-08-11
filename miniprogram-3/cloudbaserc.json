@@ -1,0 +1,11 @@
+{
+  "envId": "cloud1-9g3s515pd39b9c23",
+  "functions": {
+    "createSign": {
+      "path": "cloudfunctions/createSign"
+    },
+    "generateQrcode": {
+      "path": "cloudfunctions/generateQrcode"
+    }
+  }
+}

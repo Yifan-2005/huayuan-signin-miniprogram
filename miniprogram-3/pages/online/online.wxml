@@ -1,0 +1,143 @@
+<!-- pages/sign/sign.wxml -->
+<view class="container">
+  <view class="header">
+    <view class="title">{{taskInfo.title}}</view>
+  </view>
+  
+  <!-- 视频播放区域 -->
+  <view class="video-container">
+    <video 
+      id="signVideo"
+      class="sign-video" 
+      src="{{videoSrc}}"
+      controls="{{true}}"
+      autoplay="{{false}}"
+      show-center-play-btn="{{true}}"
+      bindtimeupdate="onTimeUpdate"
+      bindended="onVideoEnded"
+      bindplay="onVideoPlay"
+      binderror="onVideoError"
+      enable-progress-gesture="{{false}}" 
+      show-fullscreen-btn="{{true}}"
+      object-fit="contain"
+      initial-time="0"
+      show-play-btn="{{true}}"
+      show-progress="{{true}}"
+      enable-play-gesture="{{true}}"
+      vslide-gesture="{{true}}"
+      custom-cache="{{false}}"
+      show-mute-btn="{{false}}"
+      picture-in-picture-mode="[[push,pop]]"
+      vslide-gesture-in-fullscreen="{{true}}"
+      bindfullscreenchange="onFullScreenChange"
+    >
+      <!-- 进度条遮罩层，只在未签到且非过期状态下显示 -->
+      <cover-view class="progress-mask" wx:if="{{signStatus === 'watching' && !isExpiredTask}}"></cover-view>
+      
+      <!-- 简化的问题弹窗遮罩层 - 仅用于暂停视频 -->
+      <cover-view class="question-trigger" wx:if="{{showQuestion}}"></cover-view>
+    </video>
+  </view>
+  
+  <!-- 视频观看进度 -->
+  <view class="progress-container">
+    <view class="progress-title">观看进度</view>
+    <progress 
+      class="progress-bar" 
+      percent="{{watchProgress}}" 
+      stroke-width="4" 
+      activeColor="#1296db"
+      backgroundColor="#e6e6e6"
+    />
+    <view class="progress-info">
+      <text class="progress-text">{{watchProgress}}%</text>
+    </view>
+  </view>
+  
+  <!-- 签到状态 -->
+  <view class="sign-status {{signStatus}}">
+    <block wx:if="{{signStatus === 'watching'}}">
+      <text class="status-text">正在观看视频，请完成观看并回答问题</text>
+    </block>
+    <block wx:elif="{{signStatus === 'success'}}">
+      <text class="status-text success">签到成功！</text>
+      <icon class="status-icon" type="success" size="40"></icon>
+    </block>
+    <block wx:elif="{{signStatus === 'failed'}}">
+      <text class="status-text failed">签到失败！</text>
+      <icon class="status-icon" type="warn" size="40"></icon>
+      <!-- 只在非过期导致的失败时显示原因 -->
+      <text class="status-reason" wx:if="{{!failedDueToExpiration}}">原因：问题回答错误或超时</text>
+    </block>
+  </view>
+  
+  <!-- 签到说明 -->
+  <view class="sign-info">
+    <view class="info-title">签到说明</view>
+    <view class="info-content">
+      <text class="info-item">1. 请完整观看视频，中途退出将无法完成签到</text>
+      <text class="info-item">2. 视频播放过程中会弹出问题，请认真回答</text>
+      <text class="info-item">3. 观看完整视频且正确回答问题即可完成签到</text>
+      <text class="info-item">4. 问题有答题时限，请在规定时间内完成回答</text>
+    </view>
+  </view>
+
+<!-- 问题弹窗 -->
+<view class="question-popup" wx:if="{{showQuestion}}">
+  <view class="question-container">
+    <view class="question-header">
+      <view class="question-title">{{questionData.title}}</view>
+    </view>
+    <view class="countdown-timer {{remainingTime <= 5 ? 'warning' : ''}}">
+      <text class="timer-text">{{remainingTime}}s</text>
+    </view>
+    
+    <view class="question-content">{{questionData.content}}</view>
+    
+    <!-- 选项列表 -->
+    <view class="options-list" wx:if="{{!answered}}">
+      <view 
+        class="option-item {{selectedAnswer === item.id ? 'selected' : ''}}" 
+        wx:for="{{questionData.options}}" 
+        wx:key="id"
+        bindtap="selectAnswer"
+        data-id="{{item.id}}"
+      >
+        <view class="option-letter">{{item.id}}</view>
+        <view class="option-text">{{item.text}}</view>
+      </view>
+    </view>
+    
+    <!-- 答题结果 -->
+    <view class="answer-result" wx:if="{{answered}}">
+      <block wx:if="{{answerResult === 'correct'}}">
+        <view class="result-icon correct">✓</view>
+        <view class="result-text correct">回答正确</view>
+      </block>
+      <block wx:elif="{{answerResult === 'wrong'}}">
+        <view class="result-icon wrong">✗</view>
+        <view class="result-text wrong">回答错误</view>
+        <view class="correct-answer">正确答案：{{questionData.correctAnswer}}</view>
+      </block>
+      <block wx:elif="{{answerResult === 'timeout'}}">
+        <view class="result-icon timeout">⏱</view>
+        <view class="result-text timeout">回答超时</view>
+        <view class="correct-answer">正确答案：{{questionData.correctAnswer}}</view>
+      </block>
+    </view>
+    
+    <!-- 按钮区域 -->
+    <view class="button-area">
+      <!-- 继续观看按钮 -->
+      <button class="continue-btn" bindtap="continueWatching" wx:if="{{answered}}">
+        继续观看
+      </button>
+      
+      <!-- 提交答案按钮 -->
+      <button class="continue-btn submit-btn" bindtap="submitAnswer" wx:if="{{!answered && selectedAnswer}}" disabled="{{!selectedAnswer}}">
+        提交答案
+      </button>
+    </view>
+  </view>
+</view>
+</view>

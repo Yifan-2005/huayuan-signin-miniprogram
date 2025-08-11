@@ -1,0 +1,64 @@
+<view class="page">
+  <view class="card">
+    <view class="avatar" bindtap="chooseAvatar">
+  <image src="{{photo}}" mode="aspectFill" class="avatar"></image>
+  <view class="avatar-tip"></view>
+</view>
+    <view class="input-group">
+      <input class="input" placeholder="输入账号" bindinput="onInput" data-key="username" />
+      <view class="password-wrapper">
+        <input 
+          class="password-input" 
+          placeholder="输入密码" 
+          password="{{!showPassword}}" 
+          bindinput="onPasswordInput" 
+        />
+        <image 
+          src="{{showPassword ? '/images/眼睛显示.png' : '/images/眼睛隐藏.png'}}" 
+          class="toggle-eye" 
+          bindtap="togglePasswordVisibility" 
+        />
+      </view>
+      <input class="input" placeholder="输入姓名" bindinput="onInput" data-key="name" />
+      <input class="input" placeholder="输入手机号" bindinput="onInput" data-key="mobile" />
+      <!-- 多选班级-课程 -->
+      <view class="teaching-row">
+        <text>授课班级/课程：</text>
+        <button class="teaching-btn" bindtap="openTeachingPicker">
+          {{ teaching.length > 0 ? '已选' + teaching.length + '项' : '请选择' }}
+        </button>
+      </view>
+      <view wx:if="{{teaching.length > 0}}" class="teaching-selected">
+        <block wx:for="{{teaching}}" wx:key="index">
+          <text class="teaching-chip">{{item.className}}-{{item.courseName}}</text>
+        </block>
+      </view>
+    </view>
+    <view bind:tap="handlere">
+<text class="textdown">已有账号，去登录</text>
+</view>
+    <view class="button-area">
+      <button class="confirm-btn" bindtap="handleconfirm">确定</button>
+    </view>
+  </view>
+  <!-- 多选弹窗 -->
+  <view wx:if="{{showTeachingPicker}}" class="teaching-modal">
+    <view class="teaching-popup">
+      <scroll-view style="max-height:400rpx" scroll-y="true">
+        <checkbox-group value="{{teachingTemp}}" bindchange="onTeachingCheck">
+  <block wx:for="{{unselectedOptions}}" wx:key="index">
+    <label class="checkbox-label">
+      <checkbox value="{{item.className}}|{{item.courseName}}" />
+      {{item.className}}-{{item.courseName}}
+    </label>
+  </block>
+</checkbox-group>
+
+      </scroll-view>
+      <view class="modal-btns">
+        <button size="mini" class="modal-cancel" bindtap="closeTeachingPicker">取消</button>
+        <button size="mini" class="modal-confirm" bindtap="confirmTeachingPicker">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

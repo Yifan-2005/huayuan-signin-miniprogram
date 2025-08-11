@@ -1,0 +1,78 @@
+{
+  "pages": [
+    "pages/select/select",
+    "pages/index/index",
+    "pages/publish/publish",
+    "pages/teacRecord/teacRecord",
+    "pages/teac/teac",
+    "pages/signManage/signManage",
+    "pages/totRecord/totRecord",
+    "pages/oneRecord/oneRecord",
+    "pages/lessonRecord/lessonRecord",
+    "pages/video/video",
+    "pages/my/my",
+    "pages/login/login",
+    "pages/message/message",
+    "pages/register/register",
+    "pages/offline/offline",
+    "pages/online/online",
+    "pages/online_list/online_list",
+    "pages/record/record",
+    "pages/else/else",
+    "pages/tindex/tindex",
+    "pages/typeSelect/typeSelect",
+    "pages/teacRegister/teacRegister",
+    "pages/teacLogin/teacLogin",
+    "utils/setTabCurrent.js"
+  ],
+  "window": {
+    "navigationBarTitleText": "华园签",
+    "navigationBarBackgroundColor": "#1296db",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#e6e6e6",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "selectedColor": "#dbdbdb",
+    "position": "bottom",
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/signManage/signManage",
+        "text": "签到管理"
+      },
+      {
+        "pagePath": "pages/teacRecord/teacRecord",
+        "text": "签到统计"
+      },
+      {
+        "pagePath": "pages/teac/teac",
+        "text": "个人"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/首页.png",
+        "selectedIconPath": "images/首页selected.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/我的.png",
+        "selectedIconPath": "images/我的selected.png"
+      }
+    ]
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于签到时获取您的当前位置"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+
+button{
+  margin-top: 100rpx;   
+  margin-bottom: 30rpx;
+  background-color:rgb(46, 170, 228) !important;
+  color: rgb(250, 250, 250) !important;
+}

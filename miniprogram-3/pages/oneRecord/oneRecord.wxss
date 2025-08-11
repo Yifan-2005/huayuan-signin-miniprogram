@@ -1,0 +1,27 @@
+.container { padding: 30rpx; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+.page-title { font-size: 36rpx; font-weight: bold; text-align: center; margin: 20rpx 0; }
+.loading {
+   color: #999;
+   text-align: center;
+  }
+.content{
+  width: 600rpx;
+  border:  2rpx solid #239ce2;
+  margin: 0 50rpx;
+  padding: 0 40rpx;
+}
+
+
+.stat-row {
+   margin: 24rpx 0; 
+   font-size: 28rpx; 
+   color: #333; }
+.section-title { margin-top: 28rpx; font-weight: bold; }
+.absent-item { padding: 6rpx 0; color: #e05050; }
+.btn { width: 320rpx; margin: 24rpx auto; background: #239ce2; color: #fff; border-radius: 8rpx; }

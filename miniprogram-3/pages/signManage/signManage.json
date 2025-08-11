@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "签到管理",
+  "usingComponents": {
+    "custom-tab-bar": "/custom-tab-bar/custom-tab-bar"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "generateReport",
+  "version": "1.0.0",
+  "description": "数据统计云函数（聚合查询+缓存预热）",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "wxcloud deploy"  
+  },
+  "author": "YourName",
+  "license": "ISC",
+  "dependencies": {
+    "wx-server-sdk": "~3.0.1",
+    "redis": "^4.6.5",          
+    "ioredis": "^5.3.2"        
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "线上签到任务",
+  "navigationBarBackgroundColor": "#1296db",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

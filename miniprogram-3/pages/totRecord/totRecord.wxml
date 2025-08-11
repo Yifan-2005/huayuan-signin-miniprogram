@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="title">总统计</view>
+  <view class="divider"></view>
+  
+  <view wx:if="{{loading}}" class="loading">加载中…</view>
+  <view wx:else>
+    <!-- 统计内容块 -->
+    <view class="stats-block">
+      <view class="stat-card">
+        <view class="stat-label">平均缺勤率</view>
+        <view class="stat-value highlight">{{avgAbsentRate}}%</view>
+      </view>
+      <view class="subtitle">各学生缺勤次数</view>
+      <block wx:for="{{studentAbsent}}" wx:key="username">
+        <view class="stu-row">
+          <view class="stu-info">
+            <text class="stu-name">{{item.name}}</text>
+            <text class="stu-username">({{item.username}})</text>
+          </view>
+          <text class="absent">{{item.absentCount}}</text>
+        </view>
+      </block>
+      <view wx:if="{{studentAbsent.length === 0}}" class="empty">暂无学生数据</view>
+    </view>
+  </view>
+</view>

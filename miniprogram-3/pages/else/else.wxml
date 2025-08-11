@@ -1,0 +1,6 @@
+<button type="default"  open-type="contact">
+  <view class="text"> 
+    <image src="/images/客服.png" mode="aspectFit" style="width: 50rpx; height: 50rpx;"/>
+<text>联系客服</text>
+  </view>
+</button>

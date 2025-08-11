@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="page-title">签到统计</view>
+  <view wx:if="{{loading}}" class="loading">加载中...</view>
+
+  <view wx:else class="content">
+   
+    <view class="stat-row">出勤率：{{presentRate}}%　缺勤率：{{absentRate}}%</view>
+
+    <view class="section-title">缺勤名单</view>
+    <view wx:if="{{absent.length === 0}}">无缺勤</view>
+    <block wx:for="{{absent}}" wx:key="username">
+      <view class="absent-item">{{item.name}}（{{item.username}}）</view>
+    </block>
+    <button class="btn" bindtap="exportAbsent">导出缺勤名单</button>
+  </view>
+</view>

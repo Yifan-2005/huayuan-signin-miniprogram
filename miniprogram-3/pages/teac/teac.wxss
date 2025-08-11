@@ -1,0 +1,212 @@
+
+button{
+  width: 300rpx;
+  height: 100rpx;
+  border-radius: 10%;
+  background-color:rgb(57, 161, 209) !important;
+  color: white !important;
+  margin-bottom: 80rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.btn{
+margin-top: 100rpx;
+}
+
+.login-area{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-area .btn{
+  width: 300rpx;
+  height: 100rpx;
+  border-radius: 10%;
+  background-color:rgb(57, 161, 209);
+  color: white;
+  font-size: 35rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80rpx;
+}
+
+.top-view{
+  background-color: #72c3e9;
+  color: white;
+  padding: 40rpx;
+  
+
+}
+
+.top-view .user{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-view .user .row{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+.top-view .user .avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.top-view .user .name{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 20rpx;
+}
+
+.top-view .numbers{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 28rpx;
+  padding-left: 150rpx !important;
+  padding-right: 150rpx !important;
+  padding: 40rpx;
+  padding-bottom: 0rpx;
+}
+
+.top-view .numbers .row{
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.teach-list {
+  margin-top: 40rpx;
+  padding: 0 30rpx;
+}
+
+.teach-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-bottom: 18rpx;
+  text-align: left;
+  color: #2564aa;
+  letter-spacing: 2rpx;
+}
+
+.teach-card {
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 14rpx 0 rgba(42, 127, 197, 0.09);
+  margin-bottom: 28rpx;
+  padding: 24rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.teach-card .card-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 6rpx;
+}
+.teach-card .label {
+  color: #2b89c9;
+  font-weight: bold;
+  margin-right: 16rpx;
+  font-size: 28rpx;
+}
+.teach-card .val {
+  color: #444;
+  font-size: 28rpx;
+}
+
+.teach-none {
+  text-align: center;
+  color: #bbb;
+  font-size: 28rpx;
+  margin: 30rpx 0;
+}
+/* 弹窗蒙层 */
+.modal-mask {
+  position: fixed;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.18);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 弹窗主体 */
+.modal-content {
+  background: #fff;
+  padding: 28rpx 32rpx;
+  border-radius: 32rpx;
+  min-width: 540rpx;
+  width: 80vw;           /* 适配各种屏幕，宽一些 */
+  max-width: 90vw;
+  box-shadow: 0 4rpx 24rpx rgba(50, 70, 140, 0.10);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* 标题更现代 */
+.modal-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16rpx;
+  text-align: left;
+}
+
+/* 下拉和输入框更紧凑、圆角 */
+.picker-row {
+  font-size: 28rpx;
+  margin-bottom: 14rpx;
+  padding: 16rpx 0 4rpx 0;
+}
+
+.input {
+  font-size: 28rpx;
+  padding: 18rpx 20rpx;
+  border: 1.5rpx solid #e2e2e2;
+  border-radius: 24rpx;
+  margin-bottom: 24rpx;
+  outline: none;
+}
+
+
+.modal-btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30rpx;
+  margin-top: 4rpx;
+}
+.modal-btns button {
+  min-width: 96rpx;
+  height:80rpx;
+  font-size: 30rpx;
+  border-radius: 28rpx;
+  padding: 14rpx 0;
+  border: none;
+  background: #e3eaf7;
+  color: #3172f6;
+  transition: background 0.2s;
+}
+.modal-btns button:active {
+  background: #b9d1fa;
+}
+
+/* “确定”主色 */
+.modal-btns button:last-child {
+  background: #3172f6;
+  color: #fff;
+}

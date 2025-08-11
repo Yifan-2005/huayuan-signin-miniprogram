@@ -1,0 +1,11 @@
+
+{
+  "envId": "cloud1-8golkb0ca73fd619",
+  "functions": [
+    {
+      "name": "submitSign",
+      "memorySize": 512,  
+      "timeout": 20
+    }
+  ]
+}

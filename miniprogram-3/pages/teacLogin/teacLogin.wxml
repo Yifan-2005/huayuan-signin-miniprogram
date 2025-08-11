@@ -1,0 +1,66 @@
+<input   placeholder="输入账号" model:value="{{username}}"/>
+<view class="password-wrapper">
+  <input
+    type="text"
+    password="{{!showPassword}}"
+    placeholder="输入密码"
+    value="{{password}}"
+    bindinput="onPasswordInput"
+    class="password-input"
+  />
+  <image
+    src="{{showPassword ? '/images/眼睛显示.png' : '/images/眼睛隐藏.png'}}"
+    class="toggle-eye"
+    bindtap="togglePasswordVisibility"
+  />
+</view>
+<button class="btn" bind:tap="handleconfirm">确定</button>
+<view class="forget-password" bindtap="showResetPasswordModal">忘记密码?</view>
+
+<!-- 密码重置弹窗 -->
+<view class="reset-modal" wx:if="{{showResetModal}}">
+  <view class="reset-content">
+    <view class="reset-title">重置密码</view>
+    <view class="reset-input-wrapper">
+      <input
+        class="reset-username-input"
+        placeholder="请输入账号"
+        model:value="{{resetUsername}}"
+      />
+    </view>
+    <view class="reset-password-wrapper">
+      <input
+        type="text"
+        password="{{!showNewPassword}}"
+        placeholder="请输入新密码"
+        value="{{newPassword}}"
+        bindinput="onNewPasswordInput"
+        class="reset-password-input"
+      />
+      <image
+        src="{{showNewPassword ? '/images/眼睛显示.png' : '/images/眼睛隐藏.png'}}"
+        class="toggle-eye"
+        bindtap="toggleNewPasswordVisibility"
+      />
+    </view>
+    <view class="reset-password-wrapper">
+      <input
+        type="text"
+        password="{{!showConfirmPassword}}"
+        placeholder="请再次输入新密码"
+        value="{{confirmPassword}}"
+        bindinput="onConfirmPasswordInput"
+        class="reset-password-input"
+      />
+      <image
+        src="{{showConfirmPassword ? '/images/眼睛显示.png' : '/images/眼睛隐藏.png'}}"
+        class="toggle-eye"
+        bindtap="toggleConfirmPasswordVisibility"
+      />
+    </view>
+    <view class="reset-buttons">
+      <button class="reset-btn cancel" bindtap="hideResetPasswordModal">取消</button>
+      <button class="reset-btn confirm" bindtap="resetPassword">确认</button>
+    </view>
+  </view>
+</view>

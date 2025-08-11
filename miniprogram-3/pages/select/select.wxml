@@ -1,0 +1,17 @@
+<!--pages/select/select.wxml-->
+<view class="select">
+<button type="default" bindtap="handleregister">
+<view class="text"> 
+    <image src="/images/学生.png" mode="aspectFit" style="width: 50rpx; height: 50rpx;"/>
+  <text>我是学生</text>
+  </view>
+  </button>
+ 
+  <button type="default" bindtap="handletregister">
+    <view class="text"> 
+    <image src="/images/老师.png" mode="aspectFit" style="width: 50rpx; height: 50rpx;"/>
+  <text>我是老师</text>
+  </view>
+  </button>
+  </view>
+

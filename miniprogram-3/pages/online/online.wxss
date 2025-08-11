@@ -1,0 +1,356 @@
+/* pages/online/online.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* 头部样式 */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20rpx;
+  width: 100%;
+}
+
+.title {
+  font-size: 34rpx;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+}
+
+/* 视频区域样式 */
+.video-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.sign-video {
+  width: 100%;
+  height: 420rpx;
+  position: relative;
+}
+
+/* 进度条遮罩层样式 */
+.progress-mask {
+  position: absolute;
+  bottom: 0;
+  left: 60px; /* 左边留出60px不遮罩，用户仍可点击播放暂停 */
+  width: 70%; /* 右边留出一点，用户仍可点击全屏、退出全屏 */
+  height: 20%; /* 覆盖进度条区域 */
+  z-index: 998; /* 确保遮罩层在进度条之上 */
+}
+
+/* 问题触发器样式 - 用于视频中暂停播放 */
+.question-trigger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  opacity: 0;
+}
+
+.hint-text {
+  color: white;
+  font-size: 28rpx;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* 问题弹窗样式 */
+.question-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.question-container {
+  width: 90%;
+  max-width: 600rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.2);
+}
+
+.question-header {
+  margin-bottom: 30rpx;
+  text-align: center;
+  position: relative;
+}
+
+.question-title {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 15rpx;
+}
+
+.countdown-timer {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  background-color: #1890ff;
+  margin: -10rpx auto 25rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+.countdown-timer.warning {
+  background-color: #ff4d4f;
+  animation: pulse 1s infinite;
+}
+
+.timer-text {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.question-content {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+/* 选项列表样式 */
+.options-list {
+  margin-bottom: 30rpx;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.option-item.selected {
+  border-color: #1890ff;
+  background-color: rgba(24, 144, 255, 0.1);
+}
+
+.option-letter {
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #333;
+  margin-right: 20rpx;
+}
+
+.option-text {
+  font-size: 26rpx;
+  color: #333;
+  flex: 1;
+}
+
+/* 答题结果样式 */
+.answer-result {
+  text-align: center;
+  padding: 20rpx 0;
+}
+
+.result-text {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+.result-text.correct {
+  color: #1aad19;
+}
+
+.result-text.wrong {
+  color: #ff4d4f;
+}
+
+.result-text.timeout {
+  color: #faad14;
+}
+
+.correct-answer {
+  font-size: 26rpx;
+  color: #333;
+}
+
+/* 按钮区域样式 */
+.button-area {
+  display: flex;
+  justify-content: center;
+}
+
+.submit-btn {
+  width: 80%;
+  height: 80rpx;
+  background-color: rgb(66, 195, 255) !important;
+  color: rgb(90, 97, 102) !important;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30rpx;
+}
+
+.submit-btn.green {
+  background-color: #52c41a;
+}
+
+.submit-btn[disabled] {
+  background-color: #d9d9d9;
+  color: #999;
+}
+
+.continue-text {
+  font-size: 30rpx;
+  color: white;
+}
+
+/* 进度条样式 */
+.progress-container {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin-bottom: 10rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.progress-title {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 15rpx;
+}
+
+.progress-bar {
+  margin-bottom: 15rpx;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.time-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 签到状态样式 */
+.sign-status {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 10rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.status-text {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.status-text.success {
+  color: #1aad19;
+  font-weight: 500;
+}
+
+.status-text.failed {
+  color: #ff4d4f;
+  font-weight: 500;
+}
+
+.status-icon {
+  margin-bottom: 20rpx;
+}
+
+.status-reason {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 签到说明样式 */
+.sign-info {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.info-title {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 10rpx;
+}

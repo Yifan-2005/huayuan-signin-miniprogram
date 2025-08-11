@@ -1,0 +1,112 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: #f8fafd;
+  padding: 30rpx 0 30rpx 0;
+}
+.stats-block {
+  width: 95vw;
+  max-width: 700rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+
+/* 标题与分割线 */
+.title {
+  font-size: 42rpx;
+  font-weight: 700;
+  color: #2692d1;
+  text-align: center;
+  margin-top: 18rpx;
+}
+.divider {
+  border-bottom: 2rpx solid #e0e0e0;
+  margin: 14rpx 0 28rpx 0;
+}
+
+/* 内容区块，整体靠上一些 */
+.stats-block {
+  margin-top: 10rpx;
+  padding-bottom: 30rpx;
+}
+
+/* 卡片 */
+.stat-card {
+  margin: 0 auto 14rpx auto; 
+  background: linear-gradient(120deg,#fff 60%, #eaf6ff 100%);
+  border-radius: 18rpx;
+  box-shadow: 0 2rpx 12rpx rgba(44, 116, 223, 0.06);
+  padding: 24rpx 0 24rpx 0;
+  text-align: center;
+  width: 90vw;
+  max-width: 700rpx;
+  border: 2rpx solid #e3f1fc;
+  box-sizing: border-box;
+}
+
+.stat-label {
+  font-size: 28rpx;
+  color: #888;
+  margin-bottom: 8rpx;
+}
+.stat-value {
+  font-size: 56rpx;
+  font-weight: bold;
+}
+.highlight {
+  color: #e4963d;
+}
+
+.subtitle {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin: 10rpx 0 12rpx 0;  
+  color: #2692d1;
+  padding-left: 6rpx;
+}
+
+
+.stu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 10rpx rgba(44, 116, 223, 0.08);
+  margin-bottom: 14rpx;
+  padding: 20rpx 32rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.stu-info {
+  display: flex;
+  align-items: center;
+}
+.stu-name {
+  font-size: 30rpx;
+  color: #223355;
+  font-weight: 500;
+}
+.stu-username {
+  font-size: 24rpx;
+  color: #aaa;
+  margin-left: 10rpx;
+}
+.absent {
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 36rpx;
+}
+.loading, .empty {
+  text-align: center;
+  color: #aaa;
+  margin: 40rpx 0;
+  font-size: 28rpx;
+}

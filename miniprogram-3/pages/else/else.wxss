@@ -1,0 +1,17 @@
+button{
+  margin-top: 100rpx;   
+  width: 370rpx !important;
+  margin-bottom: 30rpx;
+  background-color:rgb(61, 167, 228) !important;
+  color: rgb(255, 255, 255) !important;
+}
+.text{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10rpx 0;
+}
+.text>image{
+  margin-bottom: 10rpx;
+}

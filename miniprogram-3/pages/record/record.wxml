@@ -1,0 +1,17 @@
+<view class="container3">
+  <view wx:for="{{signRecords}}" wx:key="index" class="record-item">
+    <view class="course-name">
+      <text>{{item.courseName}}</text>
+    </view>
+    <view class="sign-time">
+      <text>{{item.formattedTime}}</text> <!-- 使用预处理好的字段 -->
+    </view>
+    <view class="sign-type">
+      <text>{{item.type}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{signRecords.length === 0}}" class="no-records">
+    <text>没有找到签到记录</text>
+  </view>
+</view>

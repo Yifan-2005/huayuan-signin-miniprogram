@@ -1,0 +1,19 @@
+{
+  "name": "submitSign",
+  "version": "1.0.0",
+  "description": "高并发签到云函数（含Redis分布式锁+地理校验）",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "tcb fn deploy submitSign --force --config-json config.json"
+  },
+  "author": "YourName",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.11.18",
+    "moment": "^2.29.4",
+    "ngeohash": "^0.6.3",
+    "redis": "^4.6.5",
+    "wx-server-sdk": "~3.0.1"
+  }
+}

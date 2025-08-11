@@ -1,0 +1,148 @@
+.btn{
+  margin-top: 100rpx;   
+  margin-bottom: 30rpx;
+  background-color:rgb(54, 165, 216) !important;
+  color: rgb(255, 255, 255) !important;
+}
+
+.input1 {
+  border: 1rpx solid rgb(82, 166, 206);
+  border-radius: 20rpx;
+  padding-left: 30rpx !important;
+  padding: 15rpx;
+  margin-top: 50rpx !important;
+  margin: 10rpx;
+}
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1rpx solid rgb(82, 166, 206);
+  border-radius: 10px;
+margin-left: 10rpx;
+  height: 80rpx;
+  width: 730rpx;
+}
+
+.password-input {
+  flex: 1;
+  font-size: 32rpx;
+padding-left: 30rpx;
+
+  border: none;
+}
+
+.toggle-eye {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+
+/* 忘记密码链接样式 */
+.forget-password {
+  text-align: center;
+  color: #36a5d8;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+/* 重置密码弹窗样式 */
+.reset-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.reset-content {
+  width: 80%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.reset-title {
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 40rpx;
+  color: #36a5d8;
+}
+
+.reset-input-wrapper {
+  border: 1rpx solid rgb(82, 166, 206);
+  border-radius: 10rpx;
+  padding: 0 10rpx;
+  margin-bottom: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+
+.reset-username-input {
+  flex: 1;
+  height: 80rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  padding: 0 20rpx;
+  border: none;
+}
+
+.reset-password-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1rpx solid rgb(82, 166, 206);
+  border-radius: 10rpx;
+  padding: 0 10rpx;
+  margin-bottom: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+  height: 80rpx;
+}
+
+.reset-password-input {
+  flex: 1;
+  font-size: 28rpx;
+  padding-left: 20rpx;
+  height: 80rpx;
+  line-height: 50rpx;
+  border: none;
+}
+
+.toggle-eye {
+  width: 40rpx;
+  height: 40rpx;
+  padding: 10rpx;
+}
+
+.reset-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+
+.reset-btn {
+  width: 45%;
+  border-radius: 10rpx;
+  padding: 15rpx 0;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.cancel {
+  background-color: #f2f2f2;
+  color: #666;
+}
+
+.confirm {
+  background-color: #36a5d8;
+  color: #fff;
+}

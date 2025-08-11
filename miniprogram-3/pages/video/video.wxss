@@ -1,0 +1,170 @@
+/* pages/video/video.wxss */
+.container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30rpx 0;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-container {
+  padding-bottom: 40rpx;
+}
+
+.form-group {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  width: 130%;
+  margin-left: -95rpx;
+  margin-right: auto;
+}
+
+.label {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+  display: block;
+  border-bottom: 1rpx solid #eee;
+  padding-bottom: 20rpx;
+}
+
+.input-group {
+  margin-bottom: 30rpx;
+}
+
+.input-label {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 15rpx;
+  display: block;
+}
+
+.input {
+  height: 80rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  background-color: #f9f9f9;
+}
+
+.textarea {
+  width: calc(100% - 40rpx);
+  height: 160rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  background-color: #f9f9f9;
+}
+
+.picker {
+  height: 80rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+}
+
+.video-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-btn {
+  width: 400rpx;
+  height: 80rpx;
+  line-height: 76rpx; /* 调整行高使文字垂直居中 */
+  background-color: #359bdf;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 40rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-name {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.preview-video {
+  width: 100%;
+  height: 400rpx;
+  border-radius: 8rpx;
+  margin-top: 20rpx;
+}
+
+.question-container {
+  margin-top: 20rpx;
+}
+
+.options-container {
+  margin-top: 30rpx;
+  border-top: 1rpx dashed #eee;
+  padding-top: 30rpx;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.option-label {
+  width: 120rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.option-input {
+  flex: 1;
+  height: 70rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  background-color: #f9f9f9;
+}
+
+.submit-btn {
+  width: 90%;
+  height: 90rpx;
+  line-height: 86rpx; /* 调整行高使文字垂直居中 */
+  background-color: #359bdf; /* 使用与上传按钮相同的蓝色 */
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 45rpx;
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit-btn[disabled] {
+  background-color: #a4c2f4; /* 调整禁用状态的颜色为浅蓝色 */
+  color: rgba(255, 255, 255, 0.8);
+}

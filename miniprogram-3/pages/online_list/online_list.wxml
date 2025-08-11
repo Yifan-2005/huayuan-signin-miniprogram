@@ -1,0 +1,28 @@
+<!-- pages/online_list/online_list.wxml -->
+<view class="container1">
+  <view class="header">
+    <view class="title">线上签到任务</view>
+    <view class="subtitle">请选择需要完成的签到任务</view>
+  </view>
+  
+  <view class="task-list">
+    <block wx:for="{{signTasks}}" wx:key="id">
+      <view class="task-item" bindtap="goToSignPage" data-id="{{item.id}}">
+        <view class="task-info">
+          <view class="task-title">{{item.title}}</view>
+          <view class="task-desc">{{item.desc}}</view>
+          <view class="task-date">开始: {{item.startTimeStr}}</view>
+          <view class="task-date">结束: {{item.endTimeStr}}</view>
+        </view>
+        <view class="task-status {{item.status === '已签到' ? 'status-success' : (item.status === '未开始' ? 'status-pending' : (item.isExpired ? 'status-expired' : 'status-todo'))}}">
+  {{item.status === '已签到' ? '已签到' : (item.isExpired ? '已过期' : item.status)}}
+        </view>
+      </view>
+    </block>
+  </view>
+  
+  <view class="empty-tip" wx:if="{{signTasks.length === 0}}">
+    <view class="tip-icon">📝</view>
+    <view class="tip-text">暂无签到任务</view>
+  </view>
+</view>

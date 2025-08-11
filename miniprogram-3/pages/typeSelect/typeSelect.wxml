@@ -1,0 +1,3 @@
+<!-- pages/select/select.wxml -->
+<button bindtap="handleregister">线上签到</button>
+<button bindtap="handletregister">线下签到</button>

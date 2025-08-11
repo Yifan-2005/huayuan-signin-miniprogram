@@ -1,0 +1,21 @@
+
+button{
+  margin-top: 100rpx;   
+  margin-bottom: 30rpx;
+  background-color:rgb(62, 170, 219) !important;
+  color: rgb(255, 255, 255) !important;
+  width: 370rpx !important;
+}
+.select{
+margin-top: 470rpx;
+}
+.text{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10rpx 0;
+}
+.text>image{
+  margin-bottom: 10rpx;
+}

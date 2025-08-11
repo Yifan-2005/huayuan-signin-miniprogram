@@ -1,0 +1,111 @@
+/* pages/online_list/online_list.wxss */
+.container1 {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 30rpx 0;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: #666;
+  margin-top: 10rpx;
+}
+
+.task-list {
+  padding: 0 10rpx;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.08);
+  position: relative;
+  margin: 40rpx 10rpx 30rpx 10rpx;
+}
+
+.task-info {
+  flex: 1;
+}
+
+.task-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.task-desc {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.task-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.task-status {
+  font-size: 28rpx;
+  font-weight: bold;
+  padding: 10rpx 20rpx;
+  border-radius: 30rpx;
+  min-width: 120rpx;
+  text-align: center;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.status-success {
+  background-color: #e6f7e6;
+  color: #4caf50;
+}
+
+.status-todo {
+  background-color: #e3f2fd;
+  color: #1296db;
+}
+
+.status-pending {
+  background-color: #fff3e0;
+  color: #ff9800;
+}
+
+.status-expired {
+  background-color: #ffebee;
+  color: #f44336;
+}
+
+.empty-tip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.tip-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.tip-text {
+  font-size: 30rpx;
+  color: #999;
+}

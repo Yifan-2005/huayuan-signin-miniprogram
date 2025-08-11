@@ -1,0 +1,42 @@
+<view class="page">
+  <button bind:tap="totRecord">总统计</button>
+  <view wx:if="{{loading}}" class="loading">加载中…</view>
+  
+  <!-- 无数据时 -->
+  <view wx:if="{{!loading && signTasks.length === 0 && videoTasks.length === 0}}" class="empty">
+    暂无任务
+  </view>
+
+  <!-- 普通签到任务列表 -->
+  <view wx:if="{{signTasks.length > 0}}">
+    <view class="section-title">线下签到任务</view>
+    <block wx:for="{{signTasks}}" wx:for-item="item" wx:for-index="idx" wx:key="_id">
+      <view class="card"
+            bindtap="onSelectTask"
+            data-id="{{item._id}}">
+        <view class="line title">{{ idx + 1 }}</view>
+        <view class="line">课程名称：{{ item.courseName }}</view>
+        <view class="line">班级：{{ item.className }}</view>
+        <view class="line">签到时间：{{ item.createdAt }}</view>
+        <view class="line">开始：{{ item.startTime || '无' }} 结束：{{ item.endTime || '无' }}</view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 视频签到任务列表 -->
+  <view wx:if="{{videoTasks.length > 0}}">
+    <view class="section-title">视频签到任务</view>
+    <block wx:for="{{videoTasks}}" wx:for-item="item" wx:for-index="idx" wx:key="_id">
+      <view class="card"
+            bindtap="onSelectVideo"
+            data-id="{{item._id}}">
+        <view class="line title">{{ item.title}}</view>
+        <view class="line">课程名称：{{ item.courseName }}</view>
+        <view class="line">班级：{{ item.className }}</view>
+        <view class="line">签到时间：{{ item.createdAt }}</view>
+        <view class="line">开始：{{ item.startTime || '无' }} 结束：{{ item.endTime || '无' }}</view>
+        <view class="line">描述：{{ item.desc || '无' }}</view>
+      </view>
+    </block>
+  </view>
+</view>
