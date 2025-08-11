@@ -1,39 +1,100 @@
 # 华园签 · 校园签到小程序
 
-> 基于微信小程序与云开发（CloudBase）的签到/考勤系统，支持**线下定位签到**与**线上视频签到（含问题弹窗防挂机）**，覆盖学生端与教师端完整流程。
+> 基于 **微信小程序 + CloudBase** 的签到/考勤系统，支持**线下定位签到**与**线上视频签到（含随机题目防挂机）**，覆盖学生端与教师端完整流程。  
+> 个人角色：**黄一帆**（架构设计 & 学生端签到记录实现）
+
+---
+
+## 🚀 预览
+
+**学生端首页**  
+![学生端首页](docs/images/student-home.png)
+
+**签到记录时间线**  
+![签到记录时间线](docs/images/timeline.png)
+
+**教师端统计页面**  
+![教师端统计](docs/images/teacher-stats.png)
+
+---
 
 ## ✨ 主要功能
-- 学生端：注册/登录、线下签到（地理围栏判断）、线上签到（视频+题目）、签到记录时间线
-- 教师端：注册/登录、线下/线上签到任务发布、签到统计（总统计/单次统计）
-- 数据层：NoSQL 文档库（students、class、sign_tasks、sign_record 等），常用操作含 `.push()`、`.inc()`、`.eq()`
+
+- **学生端**
+  - 注册 / 登录
+  - 线下定位签到（地理围栏判断）
+  - 线上视频签到（关键帧出题 + 校验）
+  - 签到记录时间线（实时刷新、去重）
+- **教师端**
+  - 注册 / 登录
+  - 发布签到任务（线下 / 线上）
+  - 任务统计（总统计 / 单次统计）
+- **数据层**
+  - CloudBase NoSQL 数据库
+  - 集合：`students`、`class`、`sign_tasks`、`sign_record`
+
+---
 
 ## 🧱 技术栈
-- **前端**：WXML / WXSS / JavaScript，使用微信小程序基础组件与 API（如 `wx.getLocation`）
-- **后端**：微信**云开发 CloudBase**；早期采用**云函数**封装，后续优化为**业务层直接调用云数据库 API**
-- **数据库**：CloudBase NoSQL（文档式，模型参考 `docs/PROJECT_OVERVIEW.md`）
 
-## 🗺️ 架构与模块
-- `miniprogram/`：小程序端页面与组件（学生端、教师端）
-- `cloudfunctions/`：云函数（如有）
-- `docs/`：设计与案例（README 外的文档）
+- **前端**：WXML / WXSS / JavaScript（微信小程序 API）
+- **后端**：微信云开发 CloudBase（云函数 + 数据库直连 API）
+- **数据库**：CloudBase NoSQL
+- **位置 / 地图 API**：`wx.getLocation`、腾讯地图 SDK
 
-详见：[`docs/PROJECT_OVERVIEW.md`](docs/PROJECT_OVERVIEW.md)。
+---
 
-## 🚀 本地运行（示例）
-1. 打开 **微信开发者工具**，导入 `miniprogram/` 工程。
-2. 关联一个云开发环境，初始化数据库集合：`students`, `class`, `sign_tasks`, `sign_record`。
-3. 配置小程序权限与位置接口（定位/地图）。
-4. 运行并使用**教师端**创建任务，**学生端**在有效时间与范围内完成签到。
+## 📂 目录结构
 
-> 注：本仓库提供**学习/展示**用结构与文档。敏感配置（如 appid、envId、密钥）请放入私密配置，避免提交到公共仓库。
+```text
+miniprogram-3/
+  pages/
+    index/           # 学生端首页
+    timeline/        # 签到记录时间线
+    ...
+  custom-tab-bar/
+  utils/
+  images/
+cloudfunctions/
+  ...
+docs/
+  PROJECT_OVERVIEW.md
+  STAR-黄一帆.md
+  RESUME_BULLETS.md
+project.config.json
+sitemap.json
+.gitignore
+```
 
-## 🧑‍💻 我的角色：黄一帆（架构设计 & 学生端签到记录）
-- 负责**云函数架构**与**后期架构优化**（业务层直接调用数据库）
-- 负责**学生端「签到记录」页面**实现与交互细节
-- 参与教师端 UI/交互优化与联调
+---
 
-详情见：[`docs/STAR-黄一帆.md`](docs/STAR-黄一帆.md)。
+## ⚡ 本地运行
+
+1. 打开 **微信开发者工具** → 导入 `miniprogram-3/` 工程
+2. 绑定云开发环境（CloudBase），初始化数据库集合：
+   ```
+   students
+   class
+   sign_tasks
+   sign_record
+   ```
+3. 开启定位权限
+4. 教师端创建任务 → 学生端在时间窗内完成签到
+
+---
+
+## 🧑‍💻 我的贡献（黄一帆）
+
+- **云函数 → 数据库直连 API 架构优化**：减少调用链，提升迭代效率
+- **学生端「签到记录」时间线**：状态机设计（未开始 / 未签到 / 已签到 / 已过期）、实时刷新、去重
+- **线上签到防挂机机制**：视频播放关键帧弹题、答题校验、次数限制
+- **团队协作规范**：接口文档、集合结构说明、敏感配置管理
+
+详见：[docs/STAR-黄一帆.md](docs/STAR-黄一帆.md)
+
+---
 
 ## 📌 简历要点
-见：[`docs/RESUME_BULLETS.md`](docs/RESUME_BULLETS.md)。
+见：[docs/RESUME_BULLETS.md](docs/RESUME_BULLETS.md)
+
 
